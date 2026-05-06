@@ -19,44 +19,72 @@ body {
 
 /* NAVBAR */
 .navbar {
-    padding: 25px 0;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
 }
-
 
 .logo {
     font-size: 24px;
     font-weight: 700;
-    text-transform: capitalize;
+    color: #263238;
+    text-decoration: none;
 }
 
 .nav-links {
-    display: flex;
     list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
     gap: 30px;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: #263238;
+.nav-link {
+    font-size: 16px;
     font-weight: 500;
-    transition: 0.3s;
+    color: #263238;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
-.nav-links a.active,
-.nav-links a:hover {
+.nav-link:hover {
     color: #000;
-    border-bottom: 2px solid #000;
+    /* Темнее при наведении */
+    text-decoration: underline;
+    /* Подчеркивание при наведении */
 }
 
-.btn-talk {
-    text-decoration: none;
+/* Специфичные стили для кнопки внутри навбара, чтобы избежать конфликта с .btn-main в hero секции */
+.navbar .btn-main {
+    display: inline-block;
+    background-color: #fff;
     color: #263238;
-    border: 1.5px solid #263238;
+    border: 1px solid #263238;
+    /* Добавляем рамку для "outline" стиля */
     padding: 10px 25px;
-    border-radius: 6px;
-    font-weight: 500;
+    /* Уменьшаем отступы для кнопки в навбаре */
+    border-radius: 8px;
+    /* Скругляем углы */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    /* Уменьшаем размер шрифта */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.navbar .btn-main:hover {
+    background-color: #263238;
+    /* Меняем фон на темный при наведении */
+    color: #fff;
+    /* Меняем цвет текста на белый */
+    border-color: #263238;
+    /* Сохраняем цвет рамки */
 }
 
 /* HERO SECTION */
@@ -136,7 +164,9 @@ body {
 
     .nav-links {
         display: none;
-        /* Для полноценного меню нужен бургер-код */
+        list-style: none;
+        display: flex;
+        gap: 15px;
     }
 
     .hero-title {
